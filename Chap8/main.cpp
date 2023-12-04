@@ -6,8 +6,8 @@ using namespace std;
 
 int main()
 { 
-    auto Cellp { make_unique<SpreadsheetCell>() };
-    Cellp->SetValue(3.7);
-    cout << "cell 1 : " << Cellp->getValue() << " " << Cellp->getString() << endl;
+    auto smartCell {make_unique<SpreadsheetCell>()};
+    SpreadsheetCell* myCellp {new SpreadsheetCell{}};
+    
     return 0;
 }

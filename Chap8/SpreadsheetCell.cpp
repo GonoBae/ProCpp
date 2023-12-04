@@ -3,6 +3,16 @@
 #include <string>
 using namespace std;
 
+SpreadsheetCell::SpreadsheetCell(double initialValue)
+    : m_value {initialValue}
+{
+}
+
+SpreadsheetCell::SpreadsheetCell(std::string_view initialValue)
+{
+    setString(initialValue);
+}
+
 void SpreadsheetCell::SetValue(double value)
 {
     m_value = value;
