@@ -62,12 +62,23 @@
         "unordered_set": "cpp",
         "map": "cpp",
         "xtree": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "string_view": "cpp",
+        "charconv": "cpp",
+        "cstdarg": "cpp",
+        "cwctype": "cpp",
+        "functional": "cpp",
+        "memory_resource": "cpp",
+        "numeric": "cpp",
+        "numbers": "cpp"
     },
     "files.autoGuessEncoding": true,
     "explorer.sortOrder": "type",
     "files.exclude": {
         "**/*.exe" : true,
         "**/.DS_Store": true
-    }
+    },
+    "cmake.configureOnOpen": true,
+    "C_Cpp.default.compilerPath": "C:\\MinGW\\bin\\g++.exe",
+    "C_Cpp.intelliSenseEngineFallback": "enabled"
 }
