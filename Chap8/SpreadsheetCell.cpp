@@ -1,5 +1,6 @@
 #include "SpreadsheetCell.h"
 #include <charconv>
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -16,6 +17,26 @@ SpreadsheetCell::SpreadsheetCell(std::string_view initialValue)
 void SpreadsheetCell::SetValue(double value)
 {
     m_value = value;
+}
+
+SpreadsheetCell::SpreadsheetCell(const SpreadsheetCell& src)
+    : m_value {src.m_value}
+{
+}
+
+SpreadsheetCell& SpreadsheetCell::operator=(const SpreadsheetCell& rhs)
+{
+    if(this == &rhs)
+    {
+        return *this;
+    }
+    m_value = rhs.m_value;
+    return *this;
+}
+
+SpreadsheetCell::~SpreadsheetCell()
+{
+    cout << "Destructor called." << endl;
 }
 
 double SpreadsheetCell::getValue() const
