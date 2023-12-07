@@ -54,12 +54,12 @@ string SpreadsheetCell::getString() const
     return doubleToString(m_value);
 }
 
-string SpreadsheetCell::doubleToString(double value) const
+string SpreadsheetCell::doubleToString(double value)
 {
     return to_string(value);
 }
 
-double SpreadsheetCell::stringToDouble(string_view value) const
+double SpreadsheetCell::stringToDouble(string_view value)
 {
     double number { 0 };
     from_chars(value.data(), value.data() + value.size(), number);

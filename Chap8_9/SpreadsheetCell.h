@@ -16,7 +16,9 @@ class SpreadsheetCell
         void setString(std::string_view inString);
         std::string getString() const;
     private:
-        std::string doubleToString(double value) const;
-        double stringToDouble(std::string_view inString) const;
         double m_value { 0 };
+
+        // Chapter9.3 static method
+        static std::string doubleToString(double value);
+        static double stringToDouble(std::string_view inString);
 };

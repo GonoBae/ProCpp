@@ -129,7 +129,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 // "${file}",
-                "${fileDirname}\\**.cpp",
+                "${fileDirname}\\*.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
             ],

@@ -11,8 +11,8 @@ class Spreadsheet
         Spreadsheet& operator=(const Spreadsheet& rhs);
         ~Spreadsheet();
 
-        Spreadsheet(Spreadsheet&& src) noexcept;
-        Spreadsheet& operator=(Spreadsheet&& rhs) noexcept;
+        Spreadsheet(Spreadsheet&& src) noexcept; // 이동 생성자
+        Spreadsheet& operator=(Spreadsheet&& rhs) noexcept; // 이동 대입 연산자
 
         void swap(Spreadsheet& other) noexcept;
     private:
@@ -25,4 +25,7 @@ class Spreadsheet
         size_t m_height { 0 };
         SpreadsheetCell** m_cells { nullptr };
 };
-void swap(Spreadsheet& first, Spreadsheet& second) noexcept;
+namespace BBB
+{
+    void swap(Spreadsheet& first, Spreadsheet& second) noexcept;
+}
