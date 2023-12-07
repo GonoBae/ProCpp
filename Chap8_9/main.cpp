@@ -10,19 +10,10 @@ Spreadsheet createObject()
 }
 int main()
 {
-    vector<Spreadsheet> vec;
-    for(size_t i { 0 }; i < 2; i++)
-    {
-        cout << "Iteration " << i << endl;
-        vec.push_back(Spreadsheet {1, 1});
-        cout << endl;
-    }
-
-    Spreadsheet s {1, 1};
-    s = createObject();
-
-    Spreadsheet s2 {1, 1};
-    s2 = s;
+    Spreadsheet sheet1 {2, 2};
+    SpreadsheetCell& cell1 { sheet1.getCellAt(1, 1) };
+    const Spreadsheet sheet2 {2, 2};
+    const SpreadsheetCell& cell2 { sheet2.getCellAt(1, 1) };
     
     return 0;
 }

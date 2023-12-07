@@ -1,4 +1,4 @@
-#include "../Chap8/SpreadsheetCell.h"
+#include "SpreadsheetCell.h"
 
 class Spreadsheet
 {
@@ -6,6 +6,7 @@ class Spreadsheet
         Spreadsheet(size_t width, size_t height);
         void setCellAt(size_t x, size_t y, const SpreadsheetCell& cell);
         SpreadsheetCell& getCellAt(size_t x, size_t y);
+        const SpreadsheetCell& getCellAt(size_t x, size_t y) const;
 
         Spreadsheet(const Spreadsheet& src);
         Spreadsheet& operator=(const Spreadsheet& rhs);

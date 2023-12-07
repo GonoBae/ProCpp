@@ -69,6 +69,12 @@ void Spreadsheet::setCellAt(size_t x, size_t y, const SpreadsheetCell& cell)
 SpreadsheetCell& Spreadsheet::getCellAt(size_t x, size_t y)
 {
     verifyCoordinate(x, y);
+    return const_cast<SpreadsheetCell&>(as_const(*this).getCellAt(x, y));
+}
+
+const SpreadsheetCell& Spreadsheet::getCellAt(size_t x, size_t y) const
+{
+    verifyCoordinate(x, y);
     return m_cells[x][y];
 }
 
