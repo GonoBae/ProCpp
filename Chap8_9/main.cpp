@@ -3,17 +3,19 @@
 #include <memory>
 #include <vector>
 using namespace std;
-
-Spreadsheet createObject()
+SpreadsheetCell operator+(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs)
 {
-    return Spreadsheet {1, 1};
+    cout << lhs.getValue() + rhs.getValue() << endl;
+    return SpreadsheetCell { lhs.getValue() + rhs.getValue() };
 }
 int main()
 {
-    Spreadsheet sheet1 {2, 2};
-    SpreadsheetCell& cell1 { sheet1.getCellAt(1, 1) };
-    const Spreadsheet sheet2 {2, 2};
-    const SpreadsheetCell& cell2 { sheet2.getCellAt(1, 1) };
+    SpreadsheetCell myCell { 4 }, aThirdCell;
+    string str { "hello" };
+    aThirdCell = myCell + 5.6;
+    aThirdCell = myCell + 4;
+    aThirdCell = 5.6 + myCell;
+    aThirdCell = 4 + myCell;
     
     return 0;
 }

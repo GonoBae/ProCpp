@@ -2,11 +2,14 @@
 #include <stdexcept>
 #include <iostream>
 #include <utility>
+#include <algorithm>
 
 using namespace std;
 
-Spreadsheet::Spreadsheet(size_t width, size_t height)
-    : m_width { width }, m_height { height }
+size_t Spreadsheet::ms_counter;
+
+Spreadsheet::Spreadsheet(size_t width, size_t height, const SpreadsheetApplication& theApp)
+    : m_id { ms_counter++ }, m_width { min(width, MaxWidth) }, m_height { min(height, MaxHeight) }, m_theApp{ theApp }
 {
     cout << "Normal constructor" << endl;
     m_cells = new SpreadsheetCell*[m_width];
@@ -17,7 +20,7 @@ Spreadsheet::Spreadsheet(size_t width, size_t height)
 }
 
 Spreadsheet::Spreadsheet(const Spreadsheet& src)
-    : Spreadsheet { src.m_width, src.m_height }
+    : Spreadsheet { src.m_width, src.m_height, src.m_theApp }
 {
     cout << "Copy constructor" << endl;
     for(size_t i {0}; i < m_width; i++)
@@ -30,6 +33,7 @@ Spreadsheet::Spreadsheet(const Spreadsheet& src)
 }
 
 Spreadsheet::Spreadsheet(Spreadsheet&& src) noexcept
+    : m_theApp { src.m_theApp }
 {
     cout << "Move constructor" << endl;
     BBB::swap(*this, src);
@@ -129,3 +133,4 @@ void Spreadsheet::moveFrom(Spreadsheet& src) noexcept
     m_height = exchange(src.m_height, 0);
     m_cells = exchange(src.m_cells, nullptr);
 }
+

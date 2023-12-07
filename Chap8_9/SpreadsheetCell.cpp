@@ -67,3 +67,31 @@ double SpreadsheetCell::stringToDouble(string_view value)
     from_chars(value.data(), value.data() + value.size(), number);
     return number;
 }
+
+void SpreadsheetCell::setColor(Color color)
+{
+    m_color = color;
+}
+
+SpreadsheetCell::Color SpreadsheetCell::getColor() const
+{
+    cout << (int)m_color << endl;
+    return m_color;
+}
+
+SpreadsheetCell SpreadsheetCell::add(const SpreadsheetCell& cell) const
+{
+    return SpreadsheetCell { getValue() + cell.getValue() };
+}
+
+SpreadsheetCell SpreadsheetCell::operator+(const SpreadsheetCell& cell) const
+{
+    cout << getValue() + cell.getValue() << endl;
+    return SpreadsheetCell { getValue() + cell.getValue() };
+}
+
+SpreadsheetCell SpreadsheetCell::operator+(double rhs) const
+{
+    cout << getValue() + rhs << endl;
+    return SpreadsheetCell { getValue() + rhs };
+}
