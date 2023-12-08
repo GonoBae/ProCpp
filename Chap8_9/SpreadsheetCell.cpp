@@ -14,7 +14,7 @@ SpreadsheetCell::SpreadsheetCell(std::string_view initialValue)
     set(initialValue);
 }
 
-void SpreadsheetCell::Set(double value)
+void SpreadsheetCell::set(double value)
 {
     m_value = value;
 }
@@ -94,4 +94,32 @@ SpreadsheetCell SpreadsheetCell::operator+(double rhs) const
 {
     cout << getValue() + rhs << endl;
     return SpreadsheetCell { getValue() + rhs };
+}
+
+SpreadsheetCell& SpreadsheetCell::operator+=(const SpreadsheetCell& rhs)
+{
+    set(getValue() + rhs.getValue());
+    cout << m_value << endl;
+    return *this;
+}
+
+SpreadsheetCell& SpreadsheetCell::operator-=(const SpreadsheetCell& rhs)
+{
+    set(getValue() - rhs.getValue());
+    cout << m_value << endl;
+    return *this;
+}
+
+SpreadsheetCell& SpreadsheetCell::operator*=(const SpreadsheetCell& rhs)
+{
+    set(getValue() * rhs.getValue());
+    cout << m_value << endl;
+    return *this;
+}
+
+SpreadsheetCell& SpreadsheetCell::operator/=(const SpreadsheetCell& rhs)
+{
+    set(getValue() / rhs.getValue());
+    cout << m_value << endl;
+    return *this;
 }

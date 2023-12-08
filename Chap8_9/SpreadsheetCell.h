@@ -10,7 +10,7 @@ class SpreadsheetCell
         SpreadsheetCell(const SpreadsheetCell& src);
         SpreadsheetCell& operator=(const SpreadsheetCell& rhs);
         ~SpreadsheetCell();
-        void Set(double value);
+        void set(double value);
         double getValue() const;
 
         void set(std::string_view inString);
@@ -23,7 +23,12 @@ class SpreadsheetCell
         SpreadsheetCell add(const SpreadsheetCell& cell) const;
         SpreadsheetCell operator+(const SpreadsheetCell& cell) const;
         SpreadsheetCell operator+(double rhs) const;
-        
+
+        SpreadsheetCell& operator+=(const SpreadsheetCell& rhs);
+        SpreadsheetCell& operator-=(const SpreadsheetCell& rhs);
+        SpreadsheetCell& operator*=(const SpreadsheetCell& rhs);
+        SpreadsheetCell& operator/=(const SpreadsheetCell& rhs);
+
     private:
         double m_value { 0 };
         mutable size_t m_numAccesses { 0 };
